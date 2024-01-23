@@ -1,0 +1,17 @@
+{% extends "user_app/base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+<div class="jumbotron">
+    <h1>Hello {{ username }}</h1>
+    <p>Portfolio Site: {{ site }}</p>
+    <p>Email: {{ email }}</p>
+ 
+    {% if pic %}
+        <img src="{{ pic.url }}" alt="Profile Picture">
+    {% else %}
+        <p>No profile picture available</p>
+    {% endif %}
+ </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "user_app/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+
+<div class="jumbotron bg-light text-dark">
+    <h1 class="display-6">Please Login</h1>
+    <form action="{% url 'user_app:user_login' %}" method="post" class="form">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}" class="form-control-label">Username:</label>
+            <input type="text" name="username" class="form-control" id="{{ form.username.id_for_label }}" placeholder="Enter user name">
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}" class="form-control-label">Password:</label>
+            <input type="password" name="password" class="form-control" id="{{ form.password.id_for_label }}" placeholder="Enter password">
+        </div>
+        <br/> 
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+       
+    </form>
+</div>
+
+{% endblock %}
